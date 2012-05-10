@@ -25,7 +25,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     int _height = screenRect.size.height;
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsInt:_height];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_height];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
@@ -40,7 +40,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     int _width = screenRect.size.width;
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsInt:_width];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_width];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
@@ -58,7 +58,7 @@
     // Get version string
     NSString* ver = [infoDict objectForKey:@"CFBundleVersion"];
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:ver];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
@@ -73,7 +73,7 @@
     // Get bundle identifier string
     NSString* bundleIdent = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:bundleIdent];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bundleIdent];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
@@ -87,7 +87,7 @@
     // Get display name string
     NSString* dispName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:dispName];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:dispName];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     

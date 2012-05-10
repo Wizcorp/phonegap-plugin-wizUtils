@@ -1,19 +1,19 @@
 /* WizUtils - For all your wizarding needs!
  *
- * @author WizCorp Inc. [ Incorporated Wizards ] 
- * @copyright 2011
+ * @author Ally Ogilvie
+ * @copyright WizCorp Inc. [ Incorporated Wizards ] 2011
  * @file WizUtils.h for PhoneGap
  *
  */ 
 
 #import <Foundation/Foundation.h>
-#ifdef PHONEGAP_FRAMEWORK
-#import <PhoneGap/PGPlugin.h>
+#ifdef CORDOVA_FRAMEWORK
+#import <Cordova/CDVPlugin.h>
 #else
-#import "PGPlugin.h"
+#import "CDVPlugin.h"
 #endif
 
-@interface WizUtils : PGPlugin {
+@interface WizUtils : CDVPlugin {
 
 }
 

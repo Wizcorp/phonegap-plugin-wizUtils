@@ -4,7 +4,8 @@
 # PLUGIN: 
 
 phonegap-plugin-wizUtils
-
+version : 1.7<br />
+last update : 10/05/2012<br />
 
 
 # DESCRIPTION :
@@ -15,5 +16,4 @@ PhoneGap plugin for general utility functions to access information from the nat
 
 # DOCS & SUPPORT :
 
-PhoneGap v1.1
-http://dev.wizcorp.jp/wiki/
+PhoneGap v1.7
