@@ -44,7 +44,7 @@ wizUtils.getDeviceWidth(Function success);
 * returns Int eg. 320
 </code></pre>
 <br />
-</code></pre>
+<pre><code>
 wizUtils.wizUtils.setSplashInBackground(Boolean true/false);
 </code></pre>
 <br />
