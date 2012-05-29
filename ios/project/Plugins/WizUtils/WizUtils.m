@@ -17,7 +17,7 @@
 -(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
 {
 
-    self = (WizUtilsPlugin*)[super initWithWebView:theWebView];
+    self = (WizUtils*)[super initWithWebView:theWebView];
 
     // prepare clipboard
     pasteboard = [UIPasteboard generalPasteboard];
