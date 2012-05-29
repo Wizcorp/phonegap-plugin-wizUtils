@@ -35,7 +35,15 @@ var wizUtils = {
     
     setSplashInBackground: function(bool) {
         return cordova.exec(null, null, "WizUtils", "setSplashInBackground", [bool]);
-    }
+    },
+    
+    setText: function(text, s, f) {
+		return PhoneGap.exec(s, f, "WizUtils", "setText", [text]);
+	},
+	
+	getText: function(s, f) {
+		return PhoneGap.exec(s, f, "WizUtils", "getText", []);
+	}
     
 
 	
