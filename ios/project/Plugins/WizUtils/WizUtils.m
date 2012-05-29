@@ -14,7 +14,7 @@
 @implementation WizUtils
 
 
--(PGPlugin*) initWithWebView:(UIWebView*)theWebView
+-(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
 {
 
     self = (WizUtilsPlugin*)[super initWithWebView:theWebView];
@@ -113,7 +113,7 @@
 	[pasteboard setValue:text forPasteboardType:@"public.utf8-plain-text"];
     
     // keep open the callback
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:text];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
@@ -125,7 +125,7 @@
     // get the text from pasteboard
 	NSString* text = [pasteboard valueForPasteboardType:@"public.utf8-plain-text"];
     
-    PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:text];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }

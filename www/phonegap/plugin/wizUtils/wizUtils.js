@@ -38,11 +38,11 @@ var wizUtils = {
     },
     
     setText: function(text, s, f) {
-		return PhoneGap.exec(s, f, "WizUtils", "setText", [text]);
+		return cordova.exec(s, f, "WizUtils", "setText", [text]);
 	},
 	
 	getText: function(s, f) {
-		return PhoneGap.exec(s, f, "WizUtils", "getText", []);
+		return cordova(s, f, "WizUtils", "getText", []);
 	}
     
 
