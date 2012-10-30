@@ -7,20 +7,24 @@
  */ 
 
 #import "WizUtils.h"
-#import "GlobalStore.h"
 #import "WizDebugLog.h"
 
+@interface WizUtils ()
+@property (nonatomic, readwrite, assign) UIWebView *theWebView;
+@end
 
 @implementation WizUtils
 
+- (void)dealloc
+{
+    self.theWebView = nil;
+    [super dealloc];
+}
 
 -(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
 {
-
     self = (WizUtils*)[super initWithWebView:theWebView];
-
-    // prepare clipboard
-    pasteboard = [UIPasteboard generalPasteboard];
+    self.theWebView = theWebView;
     
     return self;
 }
@@ -110,7 +114,7 @@
     NSString* text       = [arguments objectAtIndex:1];
     
     // store the text
-	[pasteboard setValue:text forPasteboardType:@"public.utf8-plain-text"];
+	[[UIPasteboard generalPasteboard] setValue:text forPasteboardType:@"public.utf8-plain-text"];
     
     // keep open the callback
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
@@ -123,40 +127,43 @@
     NSString* callbackId       = [arguments objectAtIndex:0];
 
     // get the text from pasteboard
-	NSString* text = [pasteboard valueForPasteboardType:@"public.utf8-plain-text"];
+	NSString* text = [[UIPasteboard generalPasteboard] valueForPasteboardType:@"public.utf8-plain-text"];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
-
-+ (NSString*) stringWithUUID {
-    CFUUIDRef uuidObj = CFUUIDCreate(nil);//create a new UUID
-    //get the string representation of the UUID
-    NSString *uuidString = (NSString*)CFUUIDCreateString(nil, uuidObj);
-    CFRelease(uuidObj);
-    return [uuidString autorelease];
-}
-
-
-+ (NSString*) deviceId {
-    UIDevice *device = [UIDevice currentDevice];
-    NSString *uniqueIdentifier = [device uniqueIdentifier];
-    return uniqueIdentifier;
-    
-}
-
-
-
-- (void)setSplashInBackground:(NSArray*)arguments withDict:(NSDictionary*)options
+-(void)restart:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {
-    Store* myStore = [Store sharedStore];
-    myStore.enableSplashOnGotoBackground = [[arguments objectAtIndex:1]boolValue];
-    WizLog(@"[WizUtils] ******* setSplashInBackground %i", myStore.enableSplashOnGotoBackground);
-    
-    
-}
+    // If the show splash parameter was specified, use that to decide to show the splash screen.
+    // Otherwise, use the AutoHideSplashScreen from the Cordova.plist to decide.
+    NSNumber* showSplashScreen = [arguments objectAtIndex:1];
+    BOOL show = NO;
 
+    if ( ![showSplashScreen isEqual:[NSNull null]] ) {
+        show = [showSplashScreen boolValue];
+    } else {
+        // Path to the Cordova.plist (in the application bundle)
+        NSString *path = [[NSBundle mainBundle] pathForResource:
+                          @"Cordova" ofType:@"plist"];
+        
+        // Build dictionary from the plist
+        NSMutableDictionary *cordovaConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+        show  = [[cordovaConfig objectForKey:@"AutoHideSplashScreen"] boolValue];
+    }
+
+    if ( show ) {
+        // Show splash before reload
+        NSString *jsString = @"cordova.exec(null, null, 'SplashScreen', 'show', []);";
+        [self.theWebView stringByEvaluatingJavaScriptFromString:jsString];
+
+        // Perform reload a second later as this gives time for our JS method to execute splash
+        [self.theWebView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
+    } else {
+        // Perform reload immediately
+        [self.theWebView reload];
+    }
+}
 
 @end

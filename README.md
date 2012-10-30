@@ -45,6 +45,22 @@ wizUtils.getDeviceWidth(Function success);
 </code></pre>
 <br />
 <pre><code>
-wizUtils.wizUtils.setSplashInBackground(Boolean true/false);
+wizUtils.getText(Function success, Function failure);
+* returns String (current clipboard/clipbuffer text)
+</code></pre>
+<br />
+<pre><code>
+wizUtils.setText(String text, Function success, Function failure);
+* Sets the current clipboard/clipbuffer text
+</code></pre>
+<br />
+<pre><code>
+wizUtils.wizUtils.restart(Boolean true/false);
+* Restart the app.
+* If a boolean value of true is passed, the splash screen will be shown.
+* If a boolean value of false is passed, the splash screen will not be shown.
+* If a boolean value is not provided:
+*   If the AutoHideSplashScreen key is set to YES in the Cordova.plist file.
+*   Otherwise, the splash screen will not be shown.
 </code></pre>
 <br />

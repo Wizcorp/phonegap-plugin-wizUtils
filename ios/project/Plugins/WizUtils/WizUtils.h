@@ -13,9 +13,7 @@
 #import "CDVPlugin.h"
 #endif
 
-@interface WizUtils : CDVPlugin {
-	UIPasteboard *pasteboard;
-}
+@interface WizUtils : CDVPlugin
 
 - (void)getBundleVersion:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)getBundleIdentifier:(NSArray*)arguments withDict:(NSDictionary*)options;
@@ -26,8 +24,6 @@
 -(void)setText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
 -(void)getText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
 
-+ (NSString*) stringWithUUID;
-+ (NSString*) deviceId;
+-(void)restart:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
 
-- (void)setSplashInBackground:(NSArray*)arguments withDict:(NSDictionary*)options;
 @end

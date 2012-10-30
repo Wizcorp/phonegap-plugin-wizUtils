@@ -33,18 +33,16 @@ var wizUtils = {
         return cordova.exec(s, null, "WizUtils", "getDeviceWidth", []);                      
     },
     
-    setSplashInBackground: function(bool) {
-        return cordova.exec(null, null, "WizUtils", "setSplashInBackground", [bool]);
-    },
-    
     setText: function(text, s, f) {
 		return cordova.exec(s, f, "WizUtils", "setText", [text]);
 	},
 	
 	getText: function(s, f) {
-		return cordova(s, f, "WizUtils", "getText", []);
-	}
+		return cordova.exec(s, f, "WizUtils", "getText", []);
+	},
     
-
+    restart: function(showSplashScreen) {
+        return cordova.exec(null, null, "WizUtils", "restart", [showSplashScreen]);
+    }
 	
 };
