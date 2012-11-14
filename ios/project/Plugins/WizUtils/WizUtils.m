@@ -149,7 +149,7 @@
                           @"Cordova" ofType:@"plist"];
         
         // Build dictionary from the plist
-        NSMutableDictionary *cordovaConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+        NSMutableDictionary *cordovaConfig = [NSMutableDictionary dictionaryWithContentsOfFile:path];
         show  = [[cordovaConfig objectForKey:@"AutoHideSplashScreen"] boolValue];
     }
 
