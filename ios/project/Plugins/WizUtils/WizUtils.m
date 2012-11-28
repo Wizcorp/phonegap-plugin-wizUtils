@@ -21,9 +21,9 @@
     [super dealloc];
 }
 
--(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
+-(CDVPlugin *) initWithWebView:(UIWebView *)theWebView
 {
-    self = (WizUtils*)[super initWithWebView:theWebView];
+    self = (WizUtils *)[super initWithWebView:theWebView];
     self.theWebView = theWebView;
     
     return self;
@@ -38,7 +38,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     int _height = screenRect.size.height;
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_height];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_height];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
@@ -53,92 +53,92 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     int _width = screenRect.size.width;
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_width];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_width];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
 
-- (void)getBundleVersion:(NSArray*)arguments withDict:(NSDictionary*)options {
+- (void)getBundleVersion:(NSArray *)arguments withDict:(NSDictionary *)options {
     WizLog(@"[WizUtils] ******* getBundleVersion ");
     
     NSString *callbackId = [arguments objectAtIndex:0];
     
     // Get the main bundle for the app.
-    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     
     // Get version string
-    NSString* ver = [infoDict objectForKey:@"CFBundleVersion"];
+    NSString *ver = [infoDict objectForKey:@"CFBundleVersion"];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
     
 }
 
-- (void)getBundleIdentifier:(NSArray*)arguments withDict:(NSDictionary*)options {
+- (void)getBundleIdentifier:(NSArray *)arguments withDict:(NSDictionary *)options {
     WizLog(@"[WizUtils] ******* getBundleIdentifier ");
     
     NSString *callbackId = [arguments objectAtIndex:0];
     
     // Get bundle identifier string
-    NSString* bundleIdent = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+    NSString *bundleIdent = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bundleIdent];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bundleIdent];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
-- (void)getBundleDisplayName:(NSArray*)arguments withDict:(NSDictionary*)options{
+- (void)getBundleDisplayName:(NSArray *)arguments withDict:(NSDictionary *)options{
     WizLog(@"[WizUtils] ******* getBundleDisplayName ");
     
     NSString *callbackId = [arguments objectAtIndex:0];
     
     // Get display name string
-    NSString* dispName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    NSString *dispName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:dispName];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:dispName];
     
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
 
--(void)setText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options {
+-(void)setText:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options {
 	
     // get callback 
-    NSString* callbackId = [arguments objectAtIndex:0];
-    NSString* text       = [arguments objectAtIndex:1];
+    NSString *callbackId = [arguments objectAtIndex:0];
+    NSString *text       = [arguments objectAtIndex:1];
     
     // store the text
 	[[UIPasteboard generalPasteboard] setValue:text forPasteboardType:@"public.utf8-plain-text"];
     
     // keep open the callback
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
--(void)getText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options {
+-(void)getText:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options {
     
-    NSString* callbackId       = [arguments objectAtIndex:0];
+    NSString *callbackId       = [arguments objectAtIndex:0];
 
     // get the text from pasteboard
-	NSString* text = [[UIPasteboard generalPasteboard] valueForPasteboardType:@"public.utf8-plain-text"];
+	NSString *text = [[UIPasteboard generalPasteboard] valueForPasteboardType:@"public.utf8-plain-text"];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
     [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
     
 }
 
--(void)restart:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+-(void)restart:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options
 {
     // If the show splash parameter was specified, use that to decide to show the splash screen.
     // Otherwise, use the AutoHideSplashScreen from the Cordova.plist to decide.
-    NSNumber* showSplashScreen = [arguments objectAtIndex:1];
+    NSNumber *showSplashScreen = [arguments objectAtIndex:1];
     BOOL show = NO;
 
     if ( ![showSplashScreen isEqual:[NSNull null]] ) {

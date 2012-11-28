@@ -39,8 +39,7 @@
 
 	// If you want to prevent dragging, uncomment this section
 	/*
-	function preventBehavior(e) 
-	{ 
+	function preventBehavior(e) { 
       e.preventDefault(); 
     };
 	document.addEventListener("touchmove", preventBehavior, false);
@@ -50,14 +49,12 @@
 	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 	for more details -jm */
 	/*
-	function handleOpenURL(url)
-	{
+	function handleOpenURL(url) {
 		// TODO: do something with the url passed in.
 	}
 	*/
 	
-	function onBodyLoad()
-	{		
+	function onBodyLoad() {
 		document.addEventListener("deviceready", onDeviceReady, false);
 	}
 	
@@ -65,20 +62,17 @@
 	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
 	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 	for more details -jm */
-	function onDeviceReady()
-	{
+	function onDeviceReady() {
         if (!window.wizUtils) {
             alert("Could not find wizUtils");
         }
 	}
         
-    function success(result)
-    {
+    function success(result) {
         alert(result);
     }
 
-    function failure(result)
-    {
+    function failure(result) {
         alert(result);
     }
         
@@ -88,52 +82,46 @@
     function getDeviceHeight() { window.wizUtils.getDeviceHeight(success); }
     function getDeviceWidth() { window.wizUtils.getDeviceWidth(success); }
         
-    function setClipboardTextSuccess(result)
-    {
-        alert("Now put this app into the background and in a different app, paste the current copy buffer into a text field.  The pasted text should be the text that was just entered:\n\"" + result + "\"" );
+    function setClipboardTextSuccess(result) {
+        alert("Now put this app into the background and in a different app, "
+              + "paste the current copy buffer into a text field.  The pasted "
+              + "text should be the text that was just entered:\n"
+              + result );
     }
     
-    function setClipboardTextFailure(result)
-    {
+    function setClipboardTextFailure(result) {
         alert("Failed to copy text to clipboard buffer.");
     }
 
-    function getTextForSetSuccess(result)
-    {
+    function getTextForSetSuccess(result) {
         var text = prompt("Please enter some text to store in the copy and paste buffer:",result);
         if ( text != null ) {
             window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
         }
     }
         
-    function getTextForSetFailure(result)
-    {
+    function getTextForSetFailure(result) {
         var text = prompt("Please enter some text to store in the copy and paste buffer:","");
         window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
     }
 
-    function setText()
-    {
+    function setText() {
         window.wizUtils.getText(getTextForSetSuccess, getTextForSetFailure);
     }
         
-    function getClipboardTextSuccess(result)
-    {
-        alert("Current device clipboard text is:\n\"" + result + "\"");
+    function getClipboardTextSuccess(result) {
+        alert("Current device clipboard text is:\n" + result );
     }
         
-    function getClipboardTextFailure(result)
-    {
+    function getClipboardTextFailure(result) {
         alert("Failed to read device clipboard buffer.");
     }
 
-    function getText()
-    {
+    function getText() {
         window.wizUtils.getText(getClipboardTextSuccess, getClipboardTextFailure);
     }
         
-    function restart(showSplashScreen)
-    {
+    function restart(showSplashScreen) {
         window.wizUtils.restart(showSplashScreen);
     }
     
