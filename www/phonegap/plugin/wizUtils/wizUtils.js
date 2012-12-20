@@ -13,6 +13,10 @@
 
 var wizUtils = {
 
+    getAppFileName: function(s) {
+        return cordova.exec(s, null, "WizUtils", "getAppFileName", []);
+    },
+
     getBundleVersion: function(s) {
         return cordova.exec(s, null, "WizUtils", "getBundleVersion", []);
     },

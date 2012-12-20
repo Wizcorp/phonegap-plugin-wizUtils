@@ -59,6 +59,21 @@
     
 }
 
+- (void)getAppFileName:(NSArray*)arguments withDict:(NSDictionary*)options {
+    WizLog(@"[WizUtils] ******* getAppFileName ");
+    
+    NSString *callbackId = [arguments objectAtIndex:0];
+    
+    // Get the main bundle for the app.
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    
+    // Get app string
+    NSString *appName = [NSString stringWithFormat:@"%@.app", [infoDict objectForKey:@"CFBundleExecutable"]];
+    
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:appName];
+    
+    [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
+}
 
 - (void)getBundleVersion:(NSArray *)arguments withDict:(NSDictionary *)options {
     WizLog(@"[WizUtils] ******* getBundleVersion ");
