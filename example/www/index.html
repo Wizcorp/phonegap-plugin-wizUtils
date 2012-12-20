@@ -76,6 +76,7 @@
         alert(result);
     }
         
+    function getAppFileName() { window.wizUtils.getAppFileName(success); }
     function getBundleVersion() { window.wizUtils.getBundleVersion(success); }
     function getBundleDisplayName() { window.wizUtils.getBundleDisplayName(success); }
     function getBundleIdentifier() { window.wizUtils.getBundleIdentifier(success); }
@@ -129,6 +130,7 @@
   </head>
   <body onload="onBodyLoad()">
       <h1>WizUtils plugin!</h1>
+      <input type="button" id="push_button" value="Get App File Name" onclick="getAppFileName()" />
       <input type="button" id="push_button" value="Get Bundle Version" onclick="getBundleVersion()" />
       <input type="button" id="push_button" value="Get Bundle Display Name" onclick="getBundleDisplayName()" />
       <input type="button" id="push_button" value="Get Bundle Identifier" onclick="getBundleIdentifier()" />

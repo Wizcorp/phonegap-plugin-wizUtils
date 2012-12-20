@@ -15,6 +15,7 @@
 
 @interface WizUtils : CDVPlugin
 
+- (void)getAppFileName:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)getBundleVersion:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)getBundleIdentifier:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)getBundleDisplayName:(NSArray*)arguments withDict:(NSDictionary*)options;
