@@ -3,3 +3,6 @@ example/www/phonegap/*
 example/ios/exampleWizUtils.xcodeproj/xcuserdata/*
 example/ios/exampleWizUtils.xcodeproj/project.xcworkspace/*
 example/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/*
+example/wp8/exampleWizUtils.v11.suo
+example/wp8/exampleWizUtils/obj
+example/wp8/exampleWizUtils/Bin
