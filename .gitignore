@@ -2,3 +2,4 @@
 example/www/phonegap/*
 example/ios/exampleWizUtils.xcodeproj/xcuserdata/*
 example/ios/exampleWizUtils.xcodeproj/project.xcworkspace/*
+example/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/*

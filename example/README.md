@@ -12,6 +12,6 @@ Copy Method:
 	cp -r ../www/phonegap ./www
 
 Link Method:
-	mkdir -p ./www/phonegap/plugin/wizUtilsPlugin
-	ln -f ../www/phonegap/plugin/wizUtilsPlugin/wizUtilsPlugin.js ./www/phonegap/plugin/wizUtilsPlugin/wizUtilsPlugin.js
+	mkdir -p ./www/phonegap/plugin/wizUtils
+	ln -f ../www/phonegap/plugin/wizUtilsPlugin/wizUtils.js ./www/phonegap/plugin/wizUtils/wizUtils.js
 

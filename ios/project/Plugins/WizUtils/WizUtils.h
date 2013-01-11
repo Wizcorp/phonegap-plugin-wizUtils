@@ -7,24 +7,20 @@
  */ 
 
 #import <Foundation/Foundation.h>
-#ifdef CORDOVA_FRAMEWORK
 #import <Cordova/CDVPlugin.h>
-#else
-#import "CDVPlugin.h"
-#endif
 
 @interface WizUtils : CDVPlugin
 
-- (void)getAppFileName:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)getBundleVersion:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)getBundleIdentifier:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)getBundleDisplayName:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)getDeviceHeight:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)getDeviceWidth:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)getAppFileName:(CDVInvokedUrlCommand*)command;
+- (void)getBundleVersion:(CDVInvokedUrlCommand*)command;
+- (void)getBundleIdentifier:(CDVInvokedUrlCommand*)command;
+- (void)getBundleDisplayName:(CDVInvokedUrlCommand*)command;
+- (void)getDeviceHeight:(CDVInvokedUrlCommand*)command;
+- (void)getDeviceWidth:(CDVInvokedUrlCommand*)command;
 
--(void)setText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
--(void)getText:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
+-(void)setText:(CDVInvokedUrlCommand*)command;
+-(void)getText:(CDVInvokedUrlCommand*)command;
 
--(void)restart:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
+-(void)restart:(CDVInvokedUrlCommand*)command;
 
 @end
