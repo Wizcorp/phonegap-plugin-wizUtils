@@ -41,8 +41,8 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		F6C7C0DA169FAE8B009965DE /* www in Resources */ = {isa = PBXBuildFile; fileRef = F6C7C0D9169FAE8B009965DE /* www */; };
 		F6C7C0E4169FB470009965DE /* WizUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C7C0E3169FB470009965DE /* WizUtils.m */; };
+		F6C7C10516A7FF5F009965DE /* www in Resources */ = {isa = PBXBuildFile; fileRef = F6C7C10416A7FF5F009965DE /* www */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
@@ -103,10 +103,10 @@
 		32CA4F630368D1EE00C91783 /* exampleWizUtils-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exampleWizUtils-Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* exampleWizUtils-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "exampleWizUtils-Info.plist"; path = "../exampleWizUtils-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		F6C7C0D9169FAE8B009965DE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
 		F6C7C0E1169FB470009965DE /* WizDebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WizDebugLog.h; sourceTree = "<group>"; };
 		F6C7C0E2169FB470009965DE /* WizUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WizUtils.h; sourceTree = "<group>"; };
 		F6C7C0E3169FB470009965DE /* WizUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WizUtils.m; sourceTree = "<group>"; };
+		F6C7C10416A7FF5F009965DE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = exampleWizUtils/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +176,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				F6C7C0D9169FAE8B009965DE /* www */,
+				F6C7C10416A7FF5F009965DE /* www */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -396,7 +396,7 @@
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
-				F6C7C0DA169FAE8B009965DE /* www in Resources */,
+				F6C7C10516A7FF5F009965DE /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p $PROJECT_DIR/../www/phonegap\ncp -r $PROJECT_DIR/../../www/phonegap $PROJECT_DIR/../www";
+			shellScript = "cp -r $PROJECT_DIR/../www $PROJECT_DIR\ncp -r $PROJECT_DIR/../../www/phonegap $PROJECT_DIR/www\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

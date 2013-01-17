@@ -16,8 +16,8 @@ using relative path references.
 For JavaScript code, the XCode project performs the following copy operations
 as part of it's pre-build process:
 
-	mkdir -p ./www/phonegap
-	cp -r ../www/phonegap ./www
+	cp -r $PROJECT_DIR/../www $PROJECT_DIR
+	cp -r $PROJECT_DIR/../../www/phonegap $PROJECT_DIR/www
 
 
 # Windows Phone 8
