@@ -8,6 +8,7 @@
 
 #import "WizUtils.h"
 #import "WizDebugLog.h"
+#import <Cordova/CDVViewController.h>
 
 @interface WizUtils ()
 @property (nonatomic, readwrite, assign) UIWebView *theWebView;
@@ -137,20 +138,14 @@
 -(void)restart:(CDVInvokedUrlCommand*)command
 {
     // If the show splash parameter was specified, use that to decide to show the splash screen.
-    // Otherwise, use the AutoHideSplashScreen from the Cordova.plist to decide.
+    // Otherwise, use the AutoHideSplashScreen from the Cordova settings to decide.
     NSNumber *showSplashScreen = [command.arguments objectAtIndex:0];
     BOOL show = NO;
 
     if ( ![showSplashScreen isEqual:[NSNull null]] ) {
         show = [showSplashScreen boolValue];
     } else {
-        // Path to the Cordova.plist (in the application bundle)
-        NSString *path = [[NSBundle mainBundle] pathForResource:
-                          @"Cordova" ofType:@"plist"];
-        
-        // Build dictionary from the plist
-        NSMutableDictionary *cordovaConfig = [NSMutableDictionary dictionaryWithContentsOfFile:path];
-        show  = [[cordovaConfig objectForKey:@"AutoHideSplashScreen"] boolValue];
+        show  = [[((CDVViewController *)self.viewController).settings objectForKey:@"AutoHideSplashScreen"] boolValue];
     }
 
     if ( show ) {
