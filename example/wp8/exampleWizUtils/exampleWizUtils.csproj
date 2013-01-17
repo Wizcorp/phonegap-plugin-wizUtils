@@ -171,6 +171,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Plugins\WizUtils\WizUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,8 +207,8 @@
   <ItemGroup>
     <Content Include="resources\notification-beep.wav" />
     <Content Include="www\cordova-2.3.0.js" />
-    <Content Include="www\img\logo.png" />
-    <Content Include="www\js\index.js" />
+    <Content Include="www\index.html" />
+    <Content Include="www\phonegap\plugin\wizUtils\wizUtils.js" />
     <None Include="VERSION" />
     <Resource Include="cordovalib\Images\appbar.back.rest.png" />
     <Resource Include="cordovalib\Images\appbar.close.rest.png" />
@@ -216,10 +217,6 @@
     <Resource Include="cordovalib\Images\appbar.save.rest.png" />
     <Resource Include="cordovalib\Images\appbar.stop.rest.png" />
     <Content Include="cordovalib\resources\notification-beep.wav" />
-    <Content Include="www\css\index.css" />
-    <Content Include="www\index.html">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="cordova\debug.bat" />
     <None Include="cordova\emulate.bat" />
     <None Include="Properties\AppManifest.xml">
@@ -244,9 +241,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Plugins\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -262,5 +257,17 @@
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+echo Copying: "..\..\..\..\..\wp8\project\Plugins" to "..\..\Plugins"
+xcopy ..\..\..\..\..\wp8\project\Plugins ..\..\Plugins /s /e /y
+
+echo Copying: "..\..\..\..\www\index.html" to "..\..\www"
+xcopy ..\..\..\..\www\index.html ..\..\www /s /e /y
+
+echo Copying: "..\..\..\..\..\www" to "..\..\www"
+xcopy ..\..\..\..\..\www ..\..\www /s /e /y
+</PreBuildEvent>
   </PropertyGroup>
 </Project>

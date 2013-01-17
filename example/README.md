@@ -1,17 +1,34 @@
 # SETUP FOR BUILDING
 
 To build this example, PhoneGap requires that the plugin be installed in the
-correct location relative to this example's www directory.  So we must copy or
-link the plugin javascript code to the www directory.
+correct location relative to this example's www directory.  So we must copy
+(or link) the plugin JavaScript code to the www directory used by the application.
+We must also copy (or link) the plugin native code based on the target platform.
 
-Currently, the XCode project performs the copy method (described below) as part
-of it's build process.
+The details of how we do this are as follows:
 
-Copy Method:
+
+# iOS
+
+For native Objective-C code, the Xcode project directly references the code
+using relative path references.
+
+For JavaScript code, the XCode project performs the following copy operations
+as part of it's pre-build process:
+
 	mkdir -p ./www/phonegap
 	cp -r ../www/phonegap ./www
 
-Link Method:
-	mkdir -p ./www/phonegap/plugin/wizUtils
-	ln -f ../www/phonegap/plugin/wizUtilsPlugin/wizUtils.js ./www/phonegap/plugin/wizUtils/wizUtils.js
 
+# Windows Phone 8
+
+For native C# code, the Visual Studio project performs the following copy
+operations as part of it's pre-build process:.
+
+	xcopy ..\..\..\..\..\wp8\project\Plugins ..\..\Plugins /s /e /y
+
+For JavaScript code, the Visual Studio project performs the following copy
+operations as part of it's pre-build process:
+
+	xcopy ..\..\..\..\www\index.html ..\..\www /s /e /y
+	xcopy ..\..\..\..\..\www ..\..\www /s /e /y
