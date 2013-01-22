@@ -95,7 +95,12 @@
     }
 
     function getTextForSetSuccess(result) {
-        var text = prompt("Please enter some text to store in the copy and paste buffer:",result);
+        var text;
+        if (window.prompt) {
+            text = prompt("Please enter some text to store in the copy and paste buffer:",result);
+        } else {
+            text = "This is some sample input text";
+        }
         if ( text != null ) {
             window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
         }
