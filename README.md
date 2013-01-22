@@ -4,13 +4,54 @@
 # PLUGIN: 
 
 phonegap-plugin-wizUtils
-phonegap version : 1.7<br />
-last update : 10/05/2012<br />
+phonegap version : 2.3<br />
+last update : 11/01/2013<br />
 
 
 # DESCRIPTION :
 
 PhoneGap plugin for general utility functions to access information from the native OS.
+
+
+# CHANGELOG: 
+- Updated to Cordova 2.3
+
+
+# KNOWN ISSUES:
+- None.
+
+
+# INSTALL (iOS): #
+
+Project tree<br />
+
+<pre><code>
+www
+    / phonegap
+        / plugin
+            / wizUtils
+                / wizUtils.js
+ios
+    / project
+        / Plugins
+            / wizUtils
+                / wizUtils.h
+                / wizUtils.m
+</code></pre>
+
+
+
+1 ) Arrange files to structure seen above.
+
+
+2 ) Add the following line to config.xml in the plugins section;<br />
+<plugin name="WizUtils" value="WizUtils" />
+
+
+3 ) Add \<script\> tag to your index.html<br />
+\<script type="text/javascript" charset="utf-8"
+src="phonegap/plugin/wizUtils/wizUtils.js"\>\</script\><br />
+(assuming your index.html is setup like tree above)
 
 <br />
 <br />
