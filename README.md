@@ -4,7 +4,7 @@
 # PLUGIN: 
 
 phonegap-plugin-wizUtils
-phonegap version : 2.6<br />
+phonegap version : 2.7<br />
 last update : 13/05/2013<br />
 
 
@@ -14,6 +14,7 @@ PhoneGap plugin for general utility functions to access information from the nat
 
 
 # CHANGELOG: 
+- Updated to Cordova 2.7
 - Updated to Cordova 2.6
 - Updated to Cordova 2.5
 - Updated to Cordova 2.4
