@@ -206,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\notification-beep.wav" />
-    <Content Include="www\cordova-2.3.0.js" />
+    <Content Include="www\cordova-2.4.0.js" />
     <Content Include="www\index.html" />
     <Content Include="www\phonegap\plugin\wizUtils\wizUtils.js" />
     <None Include="VERSION" />
