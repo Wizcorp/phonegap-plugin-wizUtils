@@ -1,7 +1,7 @@
 package jp.wizcorp.phonegap.plugin.WizUtils;
 
-import jp.wizcorp.android.shell.AndroidShellActivity;
-import jp.wizcorp.android.shell.R;
+import android.view.Display;
+// import jp.wizcorp.android.shell.R;  // Replace with your app activity for resources to get app name
 
 import org.json.JSONArray;
 
@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
+import org.json.JSONException;
 
 /**
  * 
@@ -18,7 +19,7 @@ import org.apache.cordova.api.CordovaPlugin;
  * @file WizUtils for PhoneGap
  *
  */
-public class WizSpinnerPlugin extends CordovaPlugin {
+public class WizUtils extends CordovaPlugin {
 
 	/*
 	 * 
@@ -45,14 +46,16 @@ public class WizSpinnerPlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		
 		if (action.equals("getBundleVersion")) {
-			
-			String bundleVersion = "1.0";//(String) cordova.getActivity().getResources().getText(R.string.bundle_version);
+
+            // Optional: (String) cordova.getActivity().getResources().getText(R.string.bundle_version);
+			String bundleVersion = "1.0";
 			callbackContext.success(bundleVersion);
 			return true;
 			
 		} else if (action.equals("getBundleDisplayName")) {
 
-			String appName = (String) cordova.getActivity().getResources().getText(R.string.app_name);
+            // Optional: (String) cordova.getActivity().getResources().getText(R.string.app_name);
+			String appName = "testApp";
 			callbackContext.success(appName);
 			return true;
 			
@@ -76,13 +79,15 @@ public class WizSpinnerPlugin extends CordovaPlugin {
 			
 		} else if (action.equals("getDeviceHeight")) {
 
-			int appHeight = AndroidShellActivity.getHeight();
+            Display mDisplay = this.cordova.getActivity().getWindowManager().getDefaultDisplay();
+            int appHeight = mDisplay.getHeight();
 			callbackContext.success(appHeight);
 			return true;
 			
 		} else if (action.equals("getDeviceWidth")) {
 
-			int appWidth = AndroidShellActivity.getWidth();
+            Display mDisplay = this.cordova.getActivity().getWindowManager().getDefaultDisplay();
+            int appWidth = mDisplay.getWidth();
 			callbackContext.success(appWidth);
 			return true;
 			
