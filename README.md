@@ -1,5 +1,4 @@
 
-
 # phonegap-plugin-wizUtils
 
 phonegap version : 2.7<br />
@@ -93,7 +92,7 @@ Sets the current clipboard/clipbuffer text
 
 **Restart**
 
-        wizUtils.wizUtils.restart(Boolean true/false);
+        wizUtils.restart(Boolean true/false);
 
 Restart the app.
 
