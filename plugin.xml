@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="jp.wizcorp.phonegap.plugin.wizUtilsPlugin"
+    version="1.0.0">
+
+    <name>Wizard Utils Plugin</name>
+    
+    <description>This plugin allows you to access various app and device information, as well as copy/paste and restart app utilities.</description>
+    
+    <author>Ally Ogilvie - aogilvie@wizcorp.jp</author>
+    
+    <keywords>copy, paste, wizcorp, wizard, utilities</keywords>
+	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+    <license>MIT</license>
+
+    <js-module src="www/phonegap/plugin/wizUtils/wizUtils.js" name="wizUtilsPlugin" target="phonegap/plugin/wizUtils/wizUtils.js">
+        <clobbers target="window.wizUtils" />
+    </js-module>
+    
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+        	<plugin name="WizUtilsPlugin" value="WizUtilsPlugin" />
+		    <feature name="WizUtilsPlugin">
+		        <param name="ios-package" value="WizUtilsPlugin" />
+		        <param name="onload" value="true" />
+		    </feature>
+        </config-file>
+               
+        <!-- Plugin files -->
+        <header-file src="ios/project/Plugins/WizUtils/WizUtilsPlugin.h" />
+        <source-file src="ios/project/Plugins/WizUtils/WizUtilsPlugin.m" compiler-flags="-fno-objc-arc" />
+        	
+        <!-- Logger -->
+        <source-file src="ios/project/Plugins/WizUtils/WizDebugLog.h" compiler-flags="-fno-objc-arc" />
+
+    </platform>
+    
+    <!-- android -->
+    <platform name="android">
+    
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="WizUtilsPlugin" >
+				<param name="android-package" value="jp.wizcorp.phonegap.plugin.wizUtils.WizUtilsPlugin"/>
+			</feature>
+	    </config-file>
+	
+	    <source-file src="android/src/jp/wizcorp/phonegap/plugin/wizUtils/WizUtilsPlugin.java" 
+	            target-dir="src/jp/wizcorp/phonegap/plugin/wizUtils"/>
+
+    </platform>
+    
+    <license>MIT</license>
+
+</plugin>

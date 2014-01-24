@@ -2,44 +2,22 @@
 
 # phonegap-plugin-wizUtils
 
-phonegap version : 2.7<br />
-last update : 13/05/2013<br />
-
+- PhoneGap Version : 3.0
+- last update : 23/01/2014
 
 ## Description
 
 PhoneGap plugin for general utility functions to access information from the native OS.
 
+## Install (with Plugman - example iOS) 
 
-## Install (iOS)
-
-Project tree
-
-        www
-            / phonegap
-                / plugin
-                    / wizUtils
-                        / wizUtils.js
-        ios
-            / project
-                / Plugins
-                    / wizUtils
-                        / wizUtils.h
-                        / wizUtils.m
-
-1 ) Arrange files to structure seen above.
-
-
-2 ) Add the following line to config.xml in the plugins section;
-
-        <plugin name="WizUtils" value="WizUtils" />
-
-
-3 ) Add ```<script>``` tag to your index.html
-
-        <script type="text/javascript" charset="utf-8" src="phonegap/plugin/wizUtils/wizUtils.js"></script\>
-        
-(assuming your index.html is setup like tree above)
+	cordova plugin add https://github.com/Wizcorp/phonegap-plugin-wizUtils
+	cordova build ios
+	
+	< or >
+	
+	phonegap local plugin add https://github.com/Wizcorp/phonegap-plugin-wizUtils
+	phonegap build ios
 
 ## Example Code
 
@@ -47,7 +25,7 @@ Project tree
 
         wizUtils.getAppFileName(Function success);
         
-returns String eg. "game.app"(iOS) or "game.apk" (Android)
+returns String eg. "game.app" (iOS) or "game.apk" (Android)
 
 **Get Bundle Version**
 
