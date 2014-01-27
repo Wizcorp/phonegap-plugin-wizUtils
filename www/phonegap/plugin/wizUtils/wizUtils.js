@@ -1,50 +1,57 @@
 /* WizUtils for PhoneGap - For all your wizarding needs!
-*
+ *	
  * @author Ally Ogilvie
- * @copyright WizCorp Inc. [ Incorporated Wizards ] 2011
+ * @copyright Wizcorp Inc. [ Incorporated Wizards ] 2014
  * @file - wizUtils.js
  * @about - JavaScript PhoneGap bridge for extra utilities 
  *
  *
 */
 
-
-
+var exec = require("cordova/exec");
 
 var wizUtils = {
 
+    getAppFileName: function(s) {
+        cordova.exec(s, null, "WizUtilsPlugin", "getAppFileName", []);
+    },
+
     getBundleVersion: function(s) {
-        return cordova.exec(s, null, "WizUtils", "getBundleVersion", []);
+        cordova.exec(s, null, "WizUtilsPlugin", "getBundleVersion", []);
     },
     
     getBundleDisplayName: function(s) {
-        return cordova.exec(s, null, "WizUtils", "getBundleDisplayName", []);
+        cordova.exec(s, null, "WizUtilsPlugin", "getBundleDisplayName", []);
     },
     
     getBundleIdentifier: function(s) {
-        return cordova.exec(s, null, "WizUtils", "getBundleIdentifier", []);                      
+        cordova.exec(s, null, "WizUtilsPlugin", "getBundleIdentifier", []);                      
     },
     
     getDeviceHeight: function(s) {
-        return cordova.exec(s, null, "WizUtils", "getDeviceHeight", []);                      
+        cordova.exec(s, null, "WizUtilsPlugin", "getDeviceHeight", []);                      
     },
         
     getDeviceWidth: function(s) {
-        return cordova.exec(s, null, "WizUtils", "getDeviceWidth", []);                      
-    },
-    
-    setSplashInBackground: function(bool) {
-        return cordova.exec(null, null, "WizUtils", "setSplashInBackground", [bool]);
+        cordova.exec(s, null, "WizUtilsPlugin", "getDeviceWidth", []);                      
     },
     
     setText: function(text, s, f) {
-		return cordova.exec(s, f, "WizUtils", "setText", [text]);
+		cordova.exec(s, f, "WizUtilsPlugin", "setText", [text]);
 	},
 	
 	getText: function(s, f) {
-		return cordova(s, f, "WizUtils", "getText", []);
-	}
+		cordova.exec(s, f, "WizUtilsPlugin", "getText", []);
+	},
     
+    restart: function(showSplashScreen) {
+    	if (showSplashScreen && !window.navigator.splashscreen) {
+	    	console.error("splashscreen plugin is missing!");
+	    	showSplashScreen = null;
+    	}
+        cordova.exec(null, null, "WizUtilsPlugin", "restart", [showSplashScreen]);
+    }
 
-	
 };
+
+module.exports = wizUtils;
