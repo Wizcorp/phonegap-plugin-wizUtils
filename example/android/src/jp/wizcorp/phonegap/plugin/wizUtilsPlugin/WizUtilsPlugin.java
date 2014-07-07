@@ -1,4 +1,4 @@
-package jp.wizcorp.phonegap.plugin.wizUtils;
+package jp.wizcorp.phonegap.plugin.wizUtilsPlugin;
 
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;

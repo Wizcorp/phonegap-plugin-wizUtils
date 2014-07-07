@@ -1,4 +1,4 @@
-cordova.define("jp.wizcorp.phonegap.plugin.wizUtilsPlugin", function(require, exports, module) {
+cordova.define("jp.wizcorp.phonegap.plugin.wizUtilsPlugin.wizUtilsPlugin", function(require, exports, module) {
 	/* WizUtils for PhoneGap - For all your wizarding needs!
 	 *	
 	 * @author Ally Ogilvie

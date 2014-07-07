@@ -13,7 +13,7 @@
     </feature>
     <plugin />
     <feature name="WizUtilsPlugin">
-        <param name="android-package" value="jp.wizcorp.phonegap.plugin.WizUtils.WizUtilsPlugin" />
+        <param name="android-package" value="jp.wizcorp.phonegap.plugin.wizUtilsPlugin.WizUtilsPlugin" />
     </feature>
     <access origin="http://127.0.0.1*" />
     <preference name="useBrowserHistory" value="true" />
