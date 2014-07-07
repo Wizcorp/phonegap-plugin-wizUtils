@@ -4,9 +4,9 @@
   <title></title>
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-    <meta charset="utf-8">
-    <style>
-            
+	<meta charset="utf-8">
+	<style>
+	        
         /*********************************************
         * GLOBAL STYLES
         *********************************************/
@@ -27,16 +27,16 @@
         }
         
         .spacer {
-            margin-top: 20px;
+	        margin-top: 20px;
         }
         
         .floatRight {
-            float: right;
+	        float: right;
         }
         
         #container {
-            width: 320px;
-            margin: 0 auto;
+        	width: 320px;
+	        margin: 0 auto;
         }
         
         /*********************************************
@@ -121,7 +121,7 @@
         }
         
         label + br + input[type="text"]  {
-            display: inline-block;
+	    	display: inline-block;
             margin: 0 2px 2px 0;
             padding: 2px 4px;
             border: 1px solid #cfcfcf;
@@ -132,7 +132,7 @@
         }
         
         label + br + input[type="password"]  {
-            display: inline-block;
+	    	display: inline-block;
             margin: 0 2px 2px 0;
             padding: 2px 4px;
             border: 1px solid #cfcfcf;
@@ -225,91 +225,91 @@
         * SECTION DIVIDERS
         *********************************************/
 
-        section {
-            margin-bottom: 20px;
-        }
-        
-        /*********************************************
+		section {
+			margin-bottom: 20px;
+		}
+		
+		/*********************************************
         * DIALOGS
         *********************************************/
-        
-        section.dialog {
-            border: 1px solid #999;
-            background: #fff;
-            padding: 12px;
-            margin: 0;
-            position: relative;
-        }
-        
-        section.dialog h1 {
-            display: block;
-            margin: -12px -12px 12px -12px;
-            padding: 10px 4px;
-            background: #eee;
-            text-align: center;
-            font-size: 13px;
-            font-weight: normal;
-            color: #000;
-        }
-        
-        section.dialog section {
-            padding: 20px;
-            margin: 20px -12px;
-            border-top: 1px solid #999;
-            border-bottom: 1px solid #999;
-            border-left: 10px solid #999;
-            border-right: 10px solid #999;
-        }
-        
-        section.dialog section h1 {
-            text-align: center;
-            padding: 0;
-            background: none;
-            color: #42679C;
-            font-size: 13px;
-            margin: 0 0 10px 0;
-        }
+		
+		section.dialog {
+			border: 1px solid #999;
+			background: #fff;
+			padding: 12px;
+			margin: 0;
+			position: relative;
+		}
+		
+		section.dialog h1 {
+			display: block;
+			margin: -12px -12px 12px -12px;
+			padding: 10px 4px;
+			background: #eee;
+			text-align: center;
+			font-size: 13px;
+			font-weight: normal;
+			color: #000;
+		}
+		
+		section.dialog section {
+			padding: 20px;
+			margin: 20px -12px;
+			border-top: 1px solid #999;
+			border-bottom: 1px solid #999;
+			border-left: 10px solid #999;
+			border-right: 10px solid #999;
+		}
+		
+		section.dialog section h1 {
+			text-align: center;
+			padding: 0;
+			background: none;
+			color: #42679C;
+			font-size: 13px;
+			margin: 0 0 10px 0;
+		}
     </style>
 
-    <!-- iPad/iPhone specific css below, add after your main css >
-    <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />        
-    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />        
-    -->
-    <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript">
 
 
-    // If you want to prevent dragging, uncomment this section
-    /*
-    function preventBehavior(e) { 
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) { 
       e.preventDefault(); 
     };
-    document.addEventListener("touchmove", preventBehavior, false);
-    */
-    
-    /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-    see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-    for more details -jm */
-    /*
-    function handleOpenURL(url) {
-        // TODO: do something with the url passed in.
-    }
-    */
-    
-    function onBodyLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-    
-    /* When this function is called, Cordova has been initialized and is ready to roll */
-    /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-    see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-    for more details -jm */
-    function onDeviceReady() {
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url) {
+		// TODO: do something with the url passed in.
+	}
+	*/
+	
+	function onBodyLoad() {
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
+	/* When this function is called, Cordova has been initialized and is ready to roll */
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	function onDeviceReady() {
         if (!window.wizUtils) {
             alert("Could not find wizUtils");
         }
-    }
+	}
         
     function success(result) {
         alert(result);
@@ -332,23 +332,30 @@
               + "text should be the text that was just entered:\n"
               + result );
     }
-
+    
     function setClipboardTextFailure(result) {
         alert("Failed to copy text to clipboard buffer.");
     }
 
+    function getTextForSetSuccess(result) {
+        var text;
+        if (window.prompt) {
+            text = prompt("Please enter some text to store in the copy and paste buffer:",result);
+        } else {
+            text = "This is some sample input text";
+        }
+        if ( text != null ) {
+            window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
+        }
+    }
+        
     function getTextForSetFailure(result) {
         var text = prompt("Please enter some text to store in the copy and paste buffer:","");
         window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
     }
 
     function setText() {
-        if (window.prompt) {
-            text = prompt("Please enter some text to store in the copy and paste buffer:", "");
-        } else {
-            text = "This is some sample input text";
-        }
-        window.wizUtils.setText(text, setClipboardTextSuccess, setClipboardTextFailure);
+        window.wizUtils.getText(getTextForSetSuccess, getTextForSetFailure);
     }
         
     function getClipboardTextSuccess(result) {
@@ -362,37 +369,37 @@
     function getText() {
         window.wizUtils.getText(getClipboardTextSuccess, getClipboardTextFailure);
     }
-
+        
     function restart(showSplashScreen) {
         window.wizUtils.restart(showSplashScreen);
     }
-
+    
     </script>
   </head>
   <body onload="onBodyLoad()">
       <div id="container">
-            <h1>WizUtils Plugin</h1>
-            <section class="dialog">
-                <p>Experiment by pressing the buttons to get/set device settings.</p>
-                <p>Get the app name...</p>
-                <button onclick="getAppFileName();">App Name</button>
-                <p>Get the bundle version...</p>
-                <button onclick="getBundleVersion();">Bundle Version</button>
-                <p>Get the app display name...</p>
-                <button onclick="getBundleDisplayName();">Display Name</button>
-                <p>Get the app identifier...</p>
-                <button onclick="getBundleIdentifier();">Bundle Identifier Name</button>
-                <p>Get the device height...</p>
-                <button onclick="getDeviceHeight();">Device Height</button>
-                <p>Get the device width...</p>
-                <button onclick="getDeviceWidth();">Device Width</button>
-                <p>Copy text...</p>
-                <button onclick="setText();">Copy</button>
-                <p>Paste text...</p>
-                <button onclick="getText();">Paste</button>
-                <p>Reboot...</p>
-                <button onclick="restart(true);">Refresh</button>
-            </section>
-        </div>
+			<h1>WizUtils Plugin</h1>
+			<section class="dialog">
+				<p>Experiment by pressing the buttons to get/set device settings.</p>
+				<p>Get the app name...</p>
+				<button onclick="getAppFileName();">App Name</button>
+				<p>Get the bundle version...</p>
+				<button onclick="getBundleVersion();">Bundle Version</button>
+				<p>Get the app display name...</p>
+				<button onclick="getBundleDisplayName();">Display Name</button>
+				<p>Get the app identifier...</p>
+				<button onclick="getBundleIdentifier();">Bundle Identifier Name</button>
+				<p>Get the device height...</p>
+				<button onclick="getDeviceHeight();">Device Height</button>
+				<p>Get the device width...</p>
+				<button onclick="getDeviceWidth();">Device Width</button>
+				<p>Copy text...</p>
+				<button onclick="setText();">Copy</button>
+				<p>Paste text...</p>
+				<button onclick="getText();">Paste</button>
+				<p>Reboot...</p>
+				<button onclick="restart(true);">Refresh</button>
+			</section>
+	    </div>
     </body>
 </html>

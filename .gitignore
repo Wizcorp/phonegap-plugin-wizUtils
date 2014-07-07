@@ -4,17 +4,6 @@
 # iOS
 example/ios/exampleWizUtils.xcodeproj/xcuserdata/*
 example/ios/exampleWizUtils.xcodeproj/project.xcworkspace/*
-example/ios/www/phonegap/*
-example/ios/www/index.html
-
-# Windows Phone 8
-example/wp8/exampleWizUtils.v11.suo
-example/wp8/exampleWizUtils/Bin
-example/wp8/exampleWizUtils/exampleWizUtils.csproj.user
-example/wp8/exampleWizUtils/obj
-example/wp8/exampleWizUtils/Plugins
-example/wp8/exampleWizUtils/www/phonegap/*
-example/wp8/exampleWizUtils/www/index.html
 
 # Android Studio & Eclipse
 *.apk

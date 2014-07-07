@@ -1,19 +1,18 @@
 package jp.wizcorp.phonegap.plugin.wizUtilsPlugin;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.view.Display;
-
 import android.webkit.WebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-
 import java.io.File;
 
 /**
@@ -26,18 +25,21 @@ public class WizUtilsPlugin extends CordovaPlugin {
 
     private Activity act;
     private WebView _webView;
+    private int sdk;
 
     @Override
     public void initialize(org.apache.cordova.CordovaInterface cordova, org.apache.cordova.CordovaWebView webView) {
         act = cordova.getActivity();
         _webView = webView;
         super.initialize(cordova, webView);
+        sdk = android.os.Build.VERSION.SDK_INT;
     }
 
-	@Override
-	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		
-		if (action.equals("getAppFileName")) {
+    @SuppressLint("NewApi")
+    @Override
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+
+        if (action.equals("getAppFileName")) {
             String label = "(unknown)";
             PackageManager pm = act.getPackageManager();
             try {
@@ -47,9 +49,9 @@ public class WizUtilsPlugin extends CordovaPlugin {
             } catch (PackageManager.NameNotFoundException e) {
             }
             callbackContext.success(label);
-			return true;
-			
-		} else if (action.equals("getBundleVersion")) {
+            return true;
+
+        } else if (action.equals("getBundleVersion")) {
             PackageInfo pInfo = null;
             try {
                 pInfo = act.getPackageManager().getPackageInfo(act.getPackageName(), 0);
@@ -103,6 +105,42 @@ public class WizUtilsPlugin extends CordovaPlugin {
             callbackContext.success(appWidth);
             return true;
 
+        } else if (action.equals("getText")) {
+
+            String pasteText;
+            if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) cordova.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                pasteText = clipboard.getText().toString();
+            } else {
+                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) cordova.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData.Item item;
+                if (clipboard.getPrimaryClip().getItemCount() > 0) {
+                    item = clipboard.getPrimaryClip().getItemAt(0);
+                    pasteText = item.getText().toString();
+                } else {
+                    // clipboard was empty
+                    pasteText = "";
+                }
+            }
+            callbackContext.success(pasteText);
+            return true;
+
+        } else if (action.equals("setText")) {
+
+            String text2save = args.getString(0);
+            if (text2save.length() > 0) {
+                if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                    android.text.ClipboardManager clipboard = (android.text.ClipboardManager) cordova.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboard.setText(text2save);
+                } else {
+                    android.content.ClipboardManager clipboard = (android.content.ClipboardManager) cordova.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("Clip", text2save);
+                    clipboard.setPrimaryClip(clip);
+                }
+            }
+            callbackContext.success();
+            return true;
+
         } else if (action.equals("restart")) {
 
             // TODO: check for displaying the splash screen
@@ -114,6 +152,6 @@ public class WizUtilsPlugin extends CordovaPlugin {
             });
             return true;
         }
-		return false;
-	}
+        return false;
+    }
 }

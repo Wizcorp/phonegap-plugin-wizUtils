@@ -47,12 +47,12 @@
     
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="WizUtilsPlugin" >
-				<param name="android-package" value="jp.wizcorp.phonegap.plugin.wizUtils.WizUtilsPlugin"/>
+				<param name="android-package" value="jp.wizcorp.phonegap.plugin.wizUtilsPlugin.WizUtilsPlugin"/>
 			</feature>
 	    </config-file>
 	
-	    <source-file src="android/src/jp/wizcorp/phonegap/plugin/wizUtils/WizUtilsPlugin.java" 
-	            target-dir="src/jp/wizcorp/phonegap/plugin/wizUtils"/>
+	    <source-file src="android/src/jp/wizcorp/phonegap/plugin/wizUtilsPlugin/WizUtilsPlugin.java" 
+	            target-dir="src/jp/wizcorp/phonegap/plugin/wizUtilsPlugin"/>
 
     </platform>
     
