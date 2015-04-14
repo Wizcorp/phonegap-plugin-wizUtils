@@ -34,7 +34,7 @@
     int _height = screenRect.size.height;
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_height];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getDeviceWidth:(CDVInvokedUrlCommand *)command {
@@ -44,7 +44,7 @@
     int _width = screenRect.size.width;
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:_width];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getAppFileName:(CDVInvokedUrlCommand *)command {
@@ -57,7 +57,7 @@
     NSString *appName = [NSString stringWithFormat:@"%@.app", [infoDict objectForKey:@"CFBundleExecutable"]];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:appName];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getBundleVersion:(CDVInvokedUrlCommand*)command {
@@ -70,7 +70,7 @@
     NSString *ver = [infoDict objectForKey:@"CFBundleVersion"];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getBundleIdentifier:(CDVInvokedUrlCommand *)command {
@@ -80,7 +80,7 @@
     NSString *bundleIdent = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bundleIdent];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getBundleDisplayName:(CDVInvokedUrlCommand *)command {
@@ -90,7 +90,7 @@
     NSString *dispName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:dispName];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 
@@ -104,7 +104,7 @@
     
     // keep open the callback
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 -(void)getText:(CDVInvokedUrlCommand *)command {
@@ -113,7 +113,7 @@
 	NSString *text = [[UIPasteboard generalPasteboard] valueForPasteboardType:@"public.utf8-plain-text"];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:command.callbackId]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 -(void)restart:(CDVInvokedUrlCommand *)command {
