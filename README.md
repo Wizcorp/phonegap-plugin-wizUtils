@@ -3,7 +3,7 @@
 # phonegap-plugin-wizUtils
 
 - PhoneGap Version : 3.0
-- last update : 23/01/2014
+- last update : 15/4/2015
 
 ## Description
 
