@@ -30,7 +30,7 @@ public class WizUtilsPlugin extends CordovaPlugin {
     @Override
     public void initialize(org.apache.cordova.CordovaInterface cordova, org.apache.cordova.CordovaWebView webView) {
         act = cordova.getActivity();
-        _webView = webView;
+        _webView = (WebView) webView.getView();
         super.initialize(cordova, webView);
         sdk = android.os.Build.VERSION.SDK_INT;
     }
