@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="jp.wizcorp.phonegap.plugin.wizUtilsPlugin"
-    version="1.0.1">
+    version="2.0.0">
 
     <name>Wizard Utils Plugin</name>
     
@@ -13,7 +13,7 @@
     <keywords>copy, paste, wizcorp, wizard, utilities</keywords>
 	
 	<engines>
-	    <engine name="cordova" version=">=3.0.0" />
+	    <engine name="cordova" version=">=4.0.0" />
 	</engines>
 
     <license>MIT</license>
