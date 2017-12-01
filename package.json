@@ -1,5 +1,5 @@
 {
-  "name": "Wizard Utils Plugin",
+  "name": "jp.wizcorp.phonegap.plugin.wizUtilsPlugin",
   "version": "2.0.0",
   "description": "This plugin allows you to access various app and device information, as well as copy/paste and restart app utilities.",
   "cordova": {
