@@ -14,6 +14,10 @@
     "cordova-ios",
     "cordova-android"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhnhan2tn/phonegap-plugin-wizUtils"
+  },
   "engines": [
     {
       "name": "cordova",
