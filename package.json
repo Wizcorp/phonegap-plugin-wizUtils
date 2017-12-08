@@ -1,0 +1,29 @@
+{
+  "name": "jp.wizcorp.phonegap.plugin.wizUtilsPlugin",
+  "version": "2.0.0",
+  "description": "This plugin allows you to access various app and device information, as well as copy/paste and restart app utilities.",
+  "cordova": {
+    "id": "jp.wizcorp.phonegap.plugin.wizUtilsPlugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wizcorp/phonegap-plugin-wizUtils"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=4.0.0"
+    }
+  ],
+  "author": "Ally Ogilvie - aogilvie@wizcorp.jp",
+  "license": "MIT"
+}
